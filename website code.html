@@ -702,20 +702,54 @@ footer {
   .svc-cols { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr 1fr; }
 }
-@media (max-width:640px) {
+@media (max-width:768px) {
+  /* 全站統一左右邊距 */
   .wrap { padding:0 1.25rem; }
-  .pad  { padding:4rem 0; }
-  #hero { padding:8rem 1.25rem 3.5rem; }
   #nav  { padding:0 1.25rem; }
+  #hero { padding:8rem 1.25rem 3.5rem; }
+  #quote-banner { padding:5rem 1.25rem; }
+
+  /* 垂直節奏 */
+  .pad  { padding:4rem 0; }
+
+  /* 導覽列 → 漢堡選單 */
   .nav-links, .nav-cta { display:none; }
   .ham { display:flex; }
+
+  /* 表單 */
   .form-row { grid-template-columns:1fr; }
-  .form-card { padding:2rem 1.5rem; border-radius:24px; }
+  .form-card { padding:2rem 1.25rem; border-radius:16px; }
   .form-foot { flex-direction:column; }
+
+  /* 頁尾 */
   .footer-grid { grid-template-columns:1fr; gap:2rem; }
   .footer-bottom { flex-direction:column; text-align:center; }
+
+  /* 其他 */
   .svc-visual { grid-template-columns:1fr 1fr; }
   .hero-stats { gap:1.5rem; }
+}
+
+/* ════════════════════════════════════
+   15. Mobile Edge Guard
+   強制所有區塊在手機版保留左右各 24px 邊距
+   任何元素皆不得貼齊螢幕左右邊緣
+════════════════════════════════════ */
+@media (max-width:768px) {
+  section,
+  footer,
+  nav {
+    padding-left:24px !important;
+    padding-right:24px !important;
+    box-sizing:border-box !important;
+  }
+  /* 清除 .wrap 的水平 padding，避免與外層 section 形成雙重縮排 */
+  .wrap {
+    padding-left:0 !important;
+    padding-right:0 !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
 }
 </style>
 </head>
@@ -1185,12 +1219,26 @@ footer {
           <li><a href="#">📍 111008臺北市士林區福志里 中山北路五段626號2樓</a></li>
           <li><a href="#">🕐 周一至周六 8:30 am - 8:00 pm</a></li>
         </ul>
-        <div style="margin-top:1.25rem; display:flex; align-items:center; gap:.85rem;">
+        <div style="margin-top:1.25rem; display:flex; align-items:center; gap:1rem;">
           <img src="factors/qrcode.png" alt="預約諮詢 LINE QR Code"
                style="width:90px; height:90px; object-fit:contain; border-radius:8px; flex-shrink:0;">
-          <span style="font-size:.78rem; color:rgba(245,241,234,.5); letter-spacing:.06em; line-height:1.7;">
-            預約諮詢<br>LINE
-          </span>
+          <div style="display:flex; flex-direction:column; gap:.6rem;">
+            <span style="font-size:.72rem; color:rgba(245,241,234,.45); letter-spacing:.06em; line-height:1.6;">
+              預約諮詢 LINE
+            </span>
+            <a href="https://lin.ee/nR9RyAt" target="_blank" rel="noopener"
+               style="display:inline-flex; align-items:center; justify-content:center;
+                      padding:.55rem 1.1rem; border-radius:6px;
+                      border:1.5px solid rgba(245,241,234,.3);
+                      font-size:.78rem; font-weight:500; letter-spacing:.08em;
+                      color:rgba(245,241,234,.85);
+                      transition:border-color .3s,color .3s;
+                      min-height:44px; white-space:nowrap;"
+               onmouseover="this.style.borderColor='rgba(245,241,234,.7)';this.style.color='#F5F1EA';"
+               onmouseout="this.style.borderColor='rgba(245,241,234,.3)';this.style.color='rgba(245,241,234,.85)';">
+              加入 LINE →
+            </a>
+          </div>
         </div>
       </address>
 
